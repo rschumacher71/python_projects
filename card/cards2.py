@@ -41,6 +41,12 @@ font = pygame.font.SysFont("calibri",40)
 #Create a Deck 0..51
 myDeck = list(range(52))
 spacing = CARD_WIDTH
+
+#Shuffle Deck
+def shuffle():
+    effect = pygame.mixer.Sound('shuffling-cards-1.wav')
+    effect.play()
+
 def display_deck(deck):
     xpos = 0
     ypos = 0
@@ -61,6 +67,7 @@ while True:
         if event.type == KEYUP:
             if (event.key == K_s) and (flag == True):
                 random.shuffle(myDeck)
+                shuffle()
                 flag = False
             if (event.key == K_d) and (flag == True):
                 spacing /= 2
