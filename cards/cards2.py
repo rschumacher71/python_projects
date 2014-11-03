@@ -24,6 +24,7 @@ CARD_HEIGHT=96
 #cardnum : 0:12 = Ace to King, Hearts, 13:25 = Hearts, 25:38 = Clubs, 39:51 = Spades
 #loc_x, loc_y : x,y coordinate on screen to place image
 def display_a_card(cardnum, loc_x, loc_y):
+    cardnum = cardnum % 52
     suit = int(cardnum/13)
     cardnum = cardnum % 13
     card_to_show = pygame.Rect((cardnum * CARD_WIDTH, suit * CARD_HEIGHT),
@@ -82,6 +83,5 @@ while True:
     screen.blit(text,(250,410))
     text2 = font.render('Hit i or d to change spacing', True,(0,0,0))
     screen.blit(text2,(250,440))
-                      
                       
     pygame.display.update()
